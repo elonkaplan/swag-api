@@ -1,20 +1,15 @@
+import { AppEnv } from "./types";
 import { Hono } from "hono";
-import { swaggerUI } from "@hono/swagger-ui";
+import { auth } from "./modules/auth/auth.controller";
+import { user } from "./modules/user/user.controller";
 
-interface Bindings {}
+const app = new Hono<AppEnv>();
 
-const app = new Hono<{ Bindings: Bindings }>();
-
-app.get(
-  "/docs",
-  swaggerUI({
-    url: "/public/swagger.json",
-  })
-);
-
-app.get("/", (c) => {
-  console.log(c);
-  return c.text("Hello Hono!");
+app.get("/health", (c) => {
+  return c.json({ status: "ok" });
 });
+
+app.route("/auth", auth);
+app.route("/users", user);
 
 export default app;

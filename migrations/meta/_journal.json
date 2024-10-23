@@ -15,6 +15,20 @@
       "when": 1729644190867,
       "tag": "0001_perpetual_sleeper",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1729656115199,
+      "tag": "0002_green_namorita",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1729656319180,
+      "tag": "0003_steep_magus",
+      "breakpoints": true
     }
   ]
 }
