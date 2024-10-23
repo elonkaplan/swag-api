@@ -1,0 +1,13 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SWAG API",
+    "description": "API for SWAG"
+  },
+  "host": "localhost:8787",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {},
+  "definitions": {}
+}

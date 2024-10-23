@@ -1,9 +1,20 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import { swaggerUI } from "@hono/swagger-ui";
 
-const app = new Hono()
+interface Bindings {}
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+const app = new Hono<{ Bindings: Bindings }>();
 
-export default app
+app.get(
+  "/docs",
+  swaggerUI({
+    url: "/public/swagger.json",
+  })
+);
+
+app.get("/", (c) => {
+  console.log(c);
+  return c.text("Hello Hono!");
+});
+
+export default app;
