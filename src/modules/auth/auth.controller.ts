@@ -37,7 +37,7 @@ auth.post("/login", zValidator("json", authSchema), async (c) => {
     {
       id: user.id,
       username: user.username,
-      exp: constants.accessTokenExpiresIn,
+      exp: new Date().getTime() / 1000 + constants.accessTokenExpiresIn,
     },
     c.env.JWT_SECRET
   );
@@ -46,7 +46,7 @@ auth.post("/login", zValidator("json", authSchema), async (c) => {
     {
       id: user.id,
       username: user.username,
-      exp: constants.refreshTokenExpiresIn,
+      exp: new Date().getTime() / 1000 + constants.refreshTokenExpiresIn,
     },
     c.env.JWT_REFRESH_SECRET
   );
@@ -85,7 +85,7 @@ auth.post("/register", zValidator("json", authSchema), async (c) => {
     {
       id: user.id,
       username: user.username,
-      exp: constants.accessTokenExpiresIn,
+      exp: new Date().getTime() / 1000 + constants.accessTokenExpiresIn,
     },
     c.env.JWT_SECRET
   );
@@ -94,7 +94,7 @@ auth.post("/register", zValidator("json", authSchema), async (c) => {
     {
       id: user.id,
       username: user.username,
-      exp: constants.refreshTokenExpiresIn,
+      exp: new Date().getTime() / 1000 + constants.refreshTokenExpiresIn,
     },
     c.env.JWT_REFRESH_SECRET
   );
@@ -144,7 +144,7 @@ auth.post("/refresh", async (c) => {
     {
       id: user.id,
       username: user.username,
-      exp: constants.accessTokenExpiresIn,
+      exp: new Date().getTime() / 1000 + constants.accessTokenExpiresIn,
     },
     c.env.JWT_SECRET
   );
@@ -153,7 +153,7 @@ auth.post("/refresh", async (c) => {
     {
       id: user.id,
       username: user.username,
-      exp: constants.refreshTokenExpiresIn,
+      exp: new Date().getTime() / 1000 + constants.refreshTokenExpiresIn,
     },
     c.env.JWT_REFRESH_SECRET
   );
