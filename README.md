@@ -1,8 +1,5 @@
+# Run locally:
 ```
-npm install
-npm run dev
-```
-
-```
-npm run deploy
+yarn
+yarn dev
 ```
