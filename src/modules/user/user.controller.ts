@@ -86,6 +86,21 @@ user.get("/", zValidator("query", paginationSchema), async (c) => {
   });
 });
 
+user.get("/stats", async (c) => {
+  const db = getDb(c);
+
+  const totalUsers = await db.$count(users);
+  const totalFriends = await db.$count(friends);
+
+  return c.json({
+    status: "ok",
+    stats: {
+      totalUsers,
+      totalFriends,
+    },
+  });
+});
+
 user.post(
   "/:id/friends",
   zValidator("param", idSchema),
