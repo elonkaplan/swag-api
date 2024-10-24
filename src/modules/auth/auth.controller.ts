@@ -30,7 +30,10 @@ auth.post("/login", zValidator("json", authSchema), async (c) => {
     .limit(1);
 
   if (!user || !(await compare(body.password, user.password))) {
-    return c.json({ status: "error", message: "Invalid username or password" });
+    return c.json(
+      { status: "error", message: "Invalid username or password" },
+      401
+    );
   }
 
   const accessToken = await sign(
